@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+<div class="my-2">
+    <div class="text-center" id="loading-spinner"><i class="fas fa-spinner fa-spin fa-2x"></i></div>
+        <div class="row pt-2 pb-2">
+    
+            {% for product in products %}
+                <div class="col-md-3 px-3 col-6 p-0 px-md-2 mb-3 text-center">
+                <div class="card shadow w-100">
+                    <div class="card-body">
+                    <img src="images/{{ product.id }}.jpg" alt="Image1" class="img-fluid card-img-top">
+                    <div class="mt-3 fw-bold">{{ product.name }}</div>
+                    <div class="price mt-2">R {{ product.price }}</div>
+                    <div class="py-2">
+                        <a href="cart/{{ product.id }}/add" class="btn btn-warning">Add to Cart <i class="fas fa-shopping-cart"></i></a>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                {% endfor %}
+        </div>
+    
+    </div>
+    
+{% endblock %}
